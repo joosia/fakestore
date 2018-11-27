@@ -72,6 +72,10 @@ $footer-background-color: $blue;
    100% {transform: rotate(0)}
 }
 
+.shake {
+   animation: shake 200ms ease-out;
+}
+
 .navbar {
    padding: 0 10px;
    box-shadow: 0 5px 10px rgba(0,0,0,.2);

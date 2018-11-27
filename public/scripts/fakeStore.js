@@ -1,6 +1,6 @@
 // Shopping Cart
 const shoppingCart = document.querySelector(".shopping-cart");
-shoppingCart.addEventListener("click", function() {
+shoppingCart.addEventListener("click", function () {
    this.parentNode.classList.toggle("is-active");
 })
 
@@ -15,3 +15,12 @@ shoppingCart.addEventListener("click", function() {
 //       results.innerHTML(data);
 //    })
 // });
+
+const addCartBtn = document.querySelectorAll(".add-to-cart");
+
+addCartBtn.forEach(btn => {
+   btn.addEventListener("click", function () {
+      console.log(this.dataset.id);
+      document.querySelector(".fa-shopping-cart").classList.add("shake");
+   })
+});
