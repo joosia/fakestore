@@ -8,7 +8,8 @@ const express = require("express"), // Framework for web applications
    bodyParser = require("body-parser"), // For parsing form data from client side
    path = require("path"), // For defining custom paths to express
    mongoose = require("mongoose"), // For using MongoDB
-   Product = require("./models/product"); // Require productSchema
+   Product = require("./models/product"), // Require productSchema
+   User = require("./models/user"); // Require userSchema
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
@@ -31,6 +32,7 @@ mongoose.connection
 // let products = [];
 // createProducts();
 // products.forEach(product => {
+//    // Create product and insert to DB
 //    Product.create(product, (err, addedProduct) => {
 //       if (err)
 //          console.log(err)
@@ -76,7 +78,34 @@ app.get("/products/:id", (req, res) => {
 });
 
 app.get("/checkout", (req, res) => {
+   res.render("checkout")
+});
 
+app.post("/checkout/register", (req, res) => {
+   if (req.body.email &&
+      req.body.username &&
+      req.body.firstName &&
+      req.body.lastName &&
+      req.body.address &&
+      req.body.password &&
+      req.body.passwordConf) {
+      let userData = {
+         email: req.body.email,
+         username: req.body.username,
+         firstName: req.body.firstName,
+         lastName: req.body.lastName,
+         address: req.body.address,
+         password: req.body.password,
+         passwordConf: req.body.passwordConf
+      }
+      // Create user and insert to DB
+      User.create(userData, (err, newUser) => {
+         if (err)
+            console.log(err)
+         else
+            res.redirect("/checkout")
+      })
+   }
 });
 
 app.get("/checkout/confirmation", (req, res) => {

@@ -1,0 +1,80 @@
+<% include partials/header %>
+<div class="hero-header"></div>
+
+<div class="section">
+   <form action="/checkout/register" method="POST">
+      <div class="field">
+         <label class="label">Username</label>
+         <div class="control has-icons-left has-icons-right">
+            <input class="input" type="text" name="username" placeholder="e.q. JohnnyBoy">
+            <span class="icon is-small is-left">
+               <i class="fas fa-user"></i>
+            </span>
+         </div>
+      </div>
+
+      <div class="field">
+         <label class="label">Email</label>
+         <div class="control has-icons-left has-icons-right">
+            <input class="input" type="email" name="email" placeholder="e.g. johndoe@gmail.com">
+            <span class="icon is-small is-left">
+               <i class="fas fa-envelope"></i>
+            </span>
+         </div>
+      </div>
+
+      <div class="field">
+         <label class="label">First Name</label>
+         <div class="control">
+            <input class="input" type="text" name="firstName" placeholder="e.g. John">
+         </div>
+      </div>
+
+      <div class="field">
+         <label class="label">Last Name</label>
+         <div class="control">
+            <input class="input" type="text" name="lastName" placeholder="e.g. Doe">
+         </div>
+      </div>
+
+      <div class="field">
+         <label class="label">Address</label>
+         <div class="control">
+            <input class="input" type="text" name="address" placeholder="e.g. Somestreet 12 B 2 606060 Faketown">
+         </div>
+      </div>
+
+      <div class="field">
+         <label class="label">Password</label>
+         <div class="control">
+            <input class="input" type="password" name="password" placeholder="e.g. superSecretWord">
+         </div>
+      </div>
+
+      <div class="field">
+         <label class="label">Password Confirmation</label>
+         <div class="control">
+            <input class="input" type="password" name="passwordConf" placeholder="Re-type your password here">
+         </div>
+      </div>
+
+      <div class="field">
+         <div class="control">
+            <label class="checkbox">
+               <input type="checkbox">
+               I agree to the <a href="#">terms and conditions</a>
+            </label>
+         </div>
+      </div>
+
+      <div class="field is-grouped">
+         <div class="control">
+            <button type="submit" class="button is-primary">Submit Order</button>
+         </div>
+         <div class="control">
+            <button type="reset" class="button is-text">Cancel</button>
+         </div>
+      </div>
+   </form>
+</div>
+<% include partials/footer %>
