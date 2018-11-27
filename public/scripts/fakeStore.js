@@ -5,13 +5,13 @@ shoppingCart.addEventListener("click", function() {
 })
 
 // Search
-const searchField = document.getElementById("search-field");
-let results = document.getElementById("results");
+// const searchField = document.getElementById("search-field");
+// let results = document.getElementById("results");
 
-searchField.addEventListener("keyup", (ev) => {
-   // console.log("Seach field input");
-   let value = { search: searchField.value };
-   $.get("/searching", value, data => {
-      results.innerHTML(data);
-   })
-});
+// searchField.addEventListener("keyup", (ev) => {
+//    // console.log("Seach field input");
+//    let value = { search: searchField.value };
+//    $.get("/searching", value, data => {
+//       results.innerHTML(data);
+//    })
+// });

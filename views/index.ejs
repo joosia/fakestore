@@ -39,41 +39,83 @@
                <figure class="image is-128x128">
                   <img src="<%= product.img %>">
                </figure>
-               <p class="title">
+               <p class="title has-text-centered">
                   <%= product.name %>
                </p>
             </a>
             <p>
-               <%= product.price %> $</p>
+               <%= product.price %> $
+            </p>
+            <div class="has-text-centered">
+               <button class="button is-primary">
+                  <span>Add to Cart</span>
+                  <span class="icon is-small">
+                     <i class="fas fa-cart-arrow-down"></i>
+                  </span>
+               </button>
+            </div>
          </div>
          <div class="tile is-child box has-background-info">
-            <p class="title">
-               <%= product.name %>
+            <a href="/products/<%= product._id %>">
+               <figure class="image is-128x128">
+                  <img src="<%= product.img %>">
+               </figure>
+               <p class="title has-text-centered">
+                  <%= product.name %>
+               </p>
+            </a>
+            <p>
+               <%= product.price %> $
             </p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor
-               vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+            <div class="has-text-centered">
+               <button class="button is-primary">
+                  <span>Add to Cart</span>
+                  <span class="icon is-small">
+                     <i class="fas fa-cart-arrow-down"></i>
+                  </span>
+               </button>
+            </div>
          </div>
       </div>
       <div class="tile is-parent">
          <div class="tile is-child box has-background-info">
-            <p class="title">
-               <%= product.name %>
+            <a href="/products/<%= product._id %>">
+               <figure class="image is-128x128">
+                  <img src="<%= product.img %>">
+               </figure>
+               <p class="title has-text-centered">
+                  <%= product.name %>
+               </p>
+               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar, at
+                  pulvinar
+                  felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut. Morbi maximus,
+                  leo
+                  sit amet vehicula eleifend, nunc dui porta orci, quis semper odio felis ut quam.
+               </p>
+            </a>
+            <p>
+               <%= product.price %> $
             </p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar, at pulvinar
-               felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut. Morbi maximus, leo
-               sit amet vehicula eleifend, nunc dui porta orci, quis semper odio felis ut quam.</p>
+            <div class="has-text-centered">
+               <button class="button is-primary">
+                  <span>Add to Cart</span>
+                  <span class="icon is-small">
+                     <i class="fas fa-cart-arrow-down"></i>
+                  </span>
+               </button>
+            </div>
          </div>
       </div>
    </div>
-   </section>
-   
-   <section class="section">
-      <div class="box is-12 has-background-info">
-         <p class="title">
-            <%= product.name %>
-         </p>
-      </div>
-   </section>
+</section>
+
+<section class="section">
+   <div class="box is-12 has-background-info">
+      <p class="title">
+         <%= product.name %>
+      </p>
+   </div>
+</section>
 
 <% }) %>
 

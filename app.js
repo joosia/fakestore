@@ -74,7 +74,12 @@ app.get("/searching", (req, res) => {
 
 app.get("/products/:id", (req, res) => {
    // Find the product with id
-   res.render("product", { productID: productID })
+   Product.findById(req.params.id, (err, foundProduct) => {
+      if (err)
+         console.log(err)
+      else
+         res.render("products/show", { product: foundProduct });
+   })
 });
 
 app.get("/checkout", (req, res) => {
