@@ -78,7 +78,8 @@ app.get("/products/:id", (req, res) => {
 });
 
 app.get("/checkout", (req, res) => {
-   res.render("checkout")
+   let error = req.query.error;
+   res.render("checkout", { error: error })
 });
 
 app.post("/checkout/register", (req, res) => {
@@ -87,8 +88,7 @@ app.post("/checkout/register", (req, res) => {
       req.body.firstName &&
       req.body.lastName &&
       req.body.address &&
-      req.body.password &&
-      req.body.passwordConf) {
+      req.body.password === req.body.passwordConf) {
       let userData = {
          email: req.body.email,
          username: req.body.username,
@@ -96,15 +96,17 @@ app.post("/checkout/register", (req, res) => {
          lastName: req.body.lastName,
          address: req.body.address,
          password: req.body.password,
-         passwordConf: req.body.passwordConf
       }
       // Create user and insert to DB
       User.create(userData, (err, newUser) => {
          if (err)
-            console.log(err)
+            res.redirect("/checkout?error=" + err)
          else
-            res.redirect("/checkout")
+            res.redirect("/checkout/confirmation")
       })
+   } else {
+      let msg = "Passwords don't match!";
+      res.redirect("/checkout?error=" + msg)
    }
 });
 
@@ -115,6 +117,10 @@ app.get("/checkout/confirmation", (req, res) => {
 app.get("/documentation", (req, res) => {
    res.render("documentation.ejs")
 });
+// Error route
+app.get("/*", (req, res) => {
+   res.render("pageNotFound");
+})
 // ================================================================================
 // START SERVER
 // ================================================================================
