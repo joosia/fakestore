@@ -1,0 +1,78 @@
+@charset "utf-8";
+
+// Fonts
+/* nunito-light */
+@font-face {
+   font-family: 'Nunito';
+   font-style: normal;
+   font-weight: 200;
+   src: url('../fonts/nunito-v9-latin-200.woff') format('woff')
+
+ }
+ 
+ /* nunito-regular */
+ @font-face {
+   font-family: 'Nunito';
+   font-style: normal;
+   font-weight: 400;
+   src: url('../fonts/nunito-v9-latin-regular.woff') format('woff')
+
+ }
+ 
+ /* nunito-italic */
+ @font-face {
+   font-family: 'Nunito';
+   font-style: italic;
+   font-weight: 400;
+   src: url('../fonts/nunito-v9-latin-italic.woff') format('woff') 
+
+ }
+ 
+ /* nunito-900 */
+ @font-face {
+   font-family: 'Nunito';
+   font-style: bold;
+   font-weight: 900;
+   src: url('../fonts/nunito-v9-latin-900.woff') format('woff')
+ }
+ 
+
+// FakeStore Colors
+$blue: #1E4363;
+$beige: #FCF2CB;
+$yellow: #FFB00D;
+$orange: #FF8926;
+$red: #BC2D19;
+
+// Update Bulma's global variables
+$family-sans-serif: "Nunito", sans-serif;
+$grey-dark: $blue;
+$grey-light: $beige;
+$primary: $red;
+$info: $yellow;
+$link: $blue;
+
+// Update Bulma's component variables
+//$body-background-color: $beige;
+// Bulma Navbar
+$navbar-dropdown-offset: 0px;
+$navbar-item-hover-background-color: none;
+$navbar-background-color: $beige;
+// Bulma Footer
+$footer-background-color: $blue;
+
+// Import Bulma
+@import "../node_modules/bulma/bulma.sass";
+
+.side-nav {
+   position: fixed;
+   padding-bottom: 100vh;
+   background: $beige;
+   box-shadow: 5px 0 10px rgba(0,0,0,.2);
+}
+
+@media only screen and (max-width: 769px) {
+   .content-column {
+      margin-top: 64px;
+   }
+}

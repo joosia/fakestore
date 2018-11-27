@@ -1,0 +1,80 @@
+<% include partials/header %>
+
+<section class="hero hero-header">
+   <div class="hero-body">
+      <div class="container has-text-centered">
+         <p class="title">
+            Do you like faking it?
+         </p>
+         <p class="title">
+            Is fake news your thing?
+         </p>
+         <p class="title">
+            Did you vote Trump?
+         </p>
+         <p class="title">
+            If you answered three times yes, then FakeStore is just what you need!
+         </p>
+      </div>
+   </div>
+</section>
+
+<!-- Search -->
+<section class="search-container">
+   <form action="">
+      <label for="search">Find Product</label>
+      <input type="text" name="search" class="input" id="search-field">
+   </form>
+   <section id="results">
+   </section>
+</section>
+
+<% products.forEach( product => { %>
+
+<section class="section">
+   <div class="tile is-ancestor">
+      <div class="tile is-4 is-vertical is-parent">
+         <div class="tile is-child box has-background-info">
+            <a href="/products/<%= product._id %>">
+               <figure class="image is-128x128">
+                  <img src="<%= product.img %>">
+               </figure>
+               <p class="title">
+                  <%= product.name %>
+               </p>
+            </a>
+            <p>
+               <%= product.price %> $</p>
+         </div>
+         <div class="tile is-child box has-background-info">
+            <p class="title">
+               <%= product.name %>
+            </p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor
+               vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>
+         </div>
+      </div>
+      <div class="tile is-parent">
+         <div class="tile is-child box has-background-info">
+            <p class="title">
+               <%= product.name %>
+            </p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar, at pulvinar
+               felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut. Morbi maximus, leo
+               sit amet vehicula eleifend, nunc dui porta orci, quis semper odio felis ut quam.</p>
+         </div>
+      </div>
+   </div>
+   </section>
+   
+   <section class="section">
+      <div class="box is-12 has-background-info">
+         <p class="title">
+            <%= product.name %>
+         </p>
+      </div>
+   </section>
+
+<% }) %>
+
+<% include partials/footer %>

@@ -1,0 +1,130 @@
+@charset "utf-8";
+
+// Fonts
+/* nunito-light */
+@font-face {
+   font-family: 'Nunito';
+   font-style: normal;
+   font-weight: 200;
+   src: url('../fonts/nunito-v9-latin-200.woff') format('woff')
+
+ }
+ 
+ /* nunito-regular */
+ @font-face {
+   font-family: 'Nunito';
+   font-style: normal;
+   font-weight: 400;
+   src: url('../fonts/nunito-v9-latin-regular.woff') format('woff')
+
+ }
+ 
+ /* nunito-italic */
+ @font-face {
+   font-family: 'Nunito';
+   font-style: italic;
+   font-weight: 400;
+   src: url('../fonts/nunito-v9-latin-italic.woff') format('woff') 
+
+ }
+ 
+ /* nunito-900 */
+ @font-face {
+   font-family: 'Nunito';
+   font-style: bold;
+   font-weight: 900;
+   src: url('../fonts/nunito-v9-latin-900.woff') format('woff')
+ }
+ 
+
+// FakeStore Colors
+$blue: #1E4363;
+$beige: #FCF2CB;
+$yellow: #FFB00D;
+$orange: #FF8926;
+$red: #BC2D19;
+
+// Update Bulma's global variables
+$family-sans-serif: "Nunito", sans-serif;
+$grey-dark: $blue;
+$grey-light: $beige;
+$primary: $red;
+$info: $yellow;
+$link: $blue;
+
+// Update Bulma's component variables
+//$body-background-color: $beige;
+// Bulma Navbar
+$navbar-dropdown-offset: 0px;
+$navbar-breakpoint: 0px;
+$navbar-item-hover-background-color: none;
+$navbar-background-color: $beige;
+// Bulma Footer
+$footer-background-color: $blue;
+
+// Import Bulma
+@import "../node_modules/bulma/bulma.sass";
+
+// Animations
+@keyframes shake{
+   0% {transform: rotate(10deg)}
+   50% {transform: rotate(-10deg)}
+   100% {transform: rotate(0)}
+}
+
+.navbar {
+   padding: 0 10px;
+   box-shadow: 0 5px 10px rgba(0,0,0,.2);
+   .shopping-cart {
+      &:hover {
+         .fa-shopping-cart {
+            animation: shake 200ms ease-out;
+         }
+      }
+      .fa-shopping-cart {
+         color: $red;
+      }
+   }
+   #navbarLinks {
+      .navbar-item:hover {
+            color: black;
+      }
+   }
+}
+
+// Prevent tile stacking on mobile
+.tile.is-ancestor {
+   display: flex !important;
+   .is-parent {
+      display: flex;
+   }
+}
+
+.hero-header {
+   margin-top: 64px;
+   background: url("/img/fakestore_cityscape.svg");
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+   .title {
+      color: $beige;
+   }
+}
+
+.hero-footer {
+   height: 500px;
+   margin-top: 64px;
+   background: url("/img/fakestore_cityscape_noBG.svg");
+   background-repeat: no-repeat;
+   background-position: bottom;
+   background-size: cover;
+}
+
+.search-container {
+   background: $beige;
+   height: 50px;
+}
+
+figure.image {
+   margin: auto;
+}
