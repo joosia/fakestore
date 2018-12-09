@@ -4,6 +4,7 @@ require('dotenv').config(); // Get database connection details
 // ================================================================================
 const express = require("express"), // Framework for web applications
    app = express(),
+   port = process.env.PORT || 8080,
    //faker = require("faker"), // For generating fake data
    bodyParser = require("body-parser"), // For parsing form data from client side
    path = require("path"), // For defining custom paths to express
@@ -96,7 +97,7 @@ app.get("/checkout", (req, res) => {
    res.render("checkout", { error: error })
 });
 
-app.post("/checkout/register", (req, res) => {
+app.post("/checkout/", (req, res) => {
    if (req.body.email &&
       req.body.username &&
       req.body.firstName &&
@@ -116,7 +117,7 @@ app.post("/checkout/register", (req, res) => {
          if (err)
             res.redirect("/checkout?error=" + err)
          else
-            res.redirect("/checkout/confirmation")
+            res.render("/checkout/confirmation")
       })
    } else {
       let msg = "Passwords don't match!";
@@ -138,4 +139,4 @@ app.get("/*", (req, res) => {
 // ================================================================================
 // START SERVER
 // ================================================================================
-app.listen(3000, () => console.log("FakeStore Server ON"));
+app.listen(port, () => console.log("FakeStore Server ON"));

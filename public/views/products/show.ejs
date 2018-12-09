@@ -24,6 +24,12 @@
                   iure voluptatum expedita non ipsum sint in dolor, omnis soluta facilis maxime libero commodi
                   necessitatibus assumenda quas.
                </p>
+               <p>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro error nesciunt debitis? Dolorem,
+                  iure voluptatum expedita non ipsum sint in dolor, omnis soluta facilis maxime libero commodi
+                  necessitatibus assumenda quas.
+               </p>
+               <br/>
                <div class="level">
                   <div class="level-left">
                      <div class="level-item">
@@ -34,7 +40,7 @@
                   </div>
                   <div class="level-right">
                      <div class="level-item">
-                        <button class="button is-primary add-to-cart" data-id="<%= product._id %>">
+                        <button class="button is-primary add-to-cart" data-price="<%= product.price %>" data-name="<%= product.name %>" data-id="<%= product._id %>">
                            <span>Add to Cart</span>
                            <span class="icon is-small">
                               <i class="fas fa-cart-arrow-down"></i>
@@ -66,7 +72,8 @@
                <%= product.price %> $
             </p>
             <div class="has-text-centered">
-               <button class="button is-primary add-to-cart" data-id="<%= product._id %>">
+               <button class="button is-primary add-to-cart" data-price="<%= product.price %>" data-name="<%= product.name %>"
+                  data-id="<%= product._id %>">
                   <span>Add to Cart</span>
                   <span class="icon is-small">
                      <i class="fas fa-cart-arrow-down"></i>

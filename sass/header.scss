@@ -1,0 +1,40 @@
+.hero {
+   margin-top: 64px;
+   &.hero-header {
+      height: 500px;
+      background: url("/img/fakestore_cityscape.svg");
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      background-size: cover;
+      .container {
+         position: relative;
+         display: flex;
+         justify-content: center;
+         max-width: 100vw;
+      }
+      .title {
+         position: absolute;
+         color: $beige;
+      }
+      .title:first-of-type {
+         transform: translateX(100vw);
+         color: $beige;
+         animation: slideIn 1s ease-out forwards, slideOut 1s ease-out 4s forwards;
+      }
+      .title:nth-of-type(2) {
+         transform: translateX(100vw);
+         color: $beige;
+         animation: slideIn 1s ease-out 4s forwards, slideOut 1s ease-out 8s forwards;
+      }
+      .title:nth-of-type(3) {
+         transform: translateX(100vw);
+         color: $beige;
+         animation: slideIn 1s ease-out 8s forwards, slideOut 1s ease-out 12s forwards;
+      }
+      .title:nth-of-type(4) {
+         transform: translateX(100vw);
+         color: $beige;
+         animation: slideIn 1s ease-out 12s forwards;
+      }
+   }
+}

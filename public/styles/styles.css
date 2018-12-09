@@ -5050,7 +5050,7 @@ a.navbar-item,
       display: block;
       opacity: 0;
       pointer-events: none;
-      top: calc(100% + (0px));
+      top: calc(100% + (10px));
       transform: translateY(-5px);
       transition-duration: 86ms;
       transition-property: opacity, transform; }
@@ -7146,18 +7146,14 @@ label.panel-block {
     animation: shake 200ms ease-out; }
   .navbar .shopping-cart .fa-shopping-cart {
     color: #BC2D19; }
-  .navbar input[type="text"] {
-    width: 40px;
-    background: none;
-    border: none;
-    text-align: center; }
-    .navbar input[type="text"]:focus {
-      outline: none; }
-
-.tile.is-ancestor {
-  display: flex !important; }
-  .tile.is-ancestor .is-parent {
-    display: flex; }
+  .navbar li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+    .navbar li .fa-minus-circle {
+      margin-left: 10px; }
+      .navbar li .fa-minus-circle:hover {
+        cursor: pointer; }
 
 .hero {
   margin-top: 64px; }
@@ -7222,7 +7218,7 @@ label.panel-block {
   border-radius: 5px; }
 
 .product {
-  animation: pop 200ms ease-out; }
+  animation: pop 300ms ease-out; }
   .product a figure, .product a p {
     transition: 100ms ease-out; }
   .product a:hover figure, .product a:hover p {
@@ -7238,7 +7234,7 @@ label.panel-block {
 
 .more-like-this {
   overflow-x: scroll;
-  animation: pop 200ms ease-out 200ms both; }
+  animation: pop 300ms ease-out 300ms both; }
 
 .path {
   margin-bottom: 8px; }

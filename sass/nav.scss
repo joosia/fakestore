@@ -32,13 +32,13 @@
          color: $red;
       }
    }
-   input[type="text"] {
-      width: 40px;
-      background: none;
-      border: none;
-      text-align: center;
-      &:focus {
-         outline: none;
+   li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .fa-minus-circle {
+         margin-left: 10px; 
+         &:hover {cursor: pointer;}
       }
    }
 }

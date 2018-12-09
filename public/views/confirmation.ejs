@@ -1,7 +1,28 @@
 <% include partials/header %>
 
-<div class="hero-header">
-   Thank you for the order!
-</div>
+<div class="hero">
 
+</div>
+<section class="section">
+   <div class="container has-text-centered">
+      <i class="fas fa-receipt fa-4x"></i>
+      <p class="title">
+         Thank you for the order!
+         <!-- <ul id="order">
+
+         </ul> -->
+      </p>
+   </div>
+</section>
+<script>
+   localStorage.setItem("cartItems", "");
+   // if(localStorage.getItem("cartItems")) {
+   //    let order = JSON.parse(localStorage.getItem("cartItems"))
+   //    order.products.forEach(product => {
+   //       let li = document.createElement("li");
+   //       li.innerHTML = product.name;
+   //       document.getElementById("order").append(li);
+   //    })
+   // }
+</script>
 <% include partials/footer %>

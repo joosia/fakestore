@@ -10,40 +10,44 @@ const addCartBtn = document.querySelectorAll(".add-to-cart");
 const cartContent = document.querySelector(".shopping-cart-content");
 const cartIcon = document.getElementsByClassName("fa-shopping-cart");
 const cartCounter = document.querySelector(".cart-counter");
+const deleteBtn = document.querySelectorAll("fa-minus-circle");
 let cartCount;
-let cart = {
-   products: []
-}
+
 if (!localStorage.getItem("cartItems")) {
+   let cart = {
+      products: []
+   }
    localStorage.setItem('cartItems', JSON.stringify(cart));
+} else {
+   // Get cart items
+   addToCart("", cartContent)
+   let cartItems = JSON.parse(localStorage.getItem("cartItems"));
+   cartCount = cartItems.products.length;
 }
 
-if (localStorage.getItem("cartCount")) {
+if (cartCount > 0) {
    cartCounter.classList.remove("hidden")
-   cartCount = localStorage.getItem("cartCount");
+   cartCounter.classList.add("pop");
    cartCounter.querySelector("span").innerText = cartCount;
 } else {
    cartCount = 0;
+   let li = document.createElement("li");
+   li.classList.add("msg");
+   li.innerText = "Your cart is empty!";
+   cartContent.append(li);
 }
 
 addCartBtn.forEach(btn => {
    btn.addEventListener("click", function () {
+      let msg = document.querySelector(".msg");
+      if (msg) {
+         document.querySelector(".msg").remove();
+      }
       let product = {
          id: this.dataset.id,
-         name: this.dataset.name
+         name: this.dataset.name,
       }
-      addToCart(product);
-      let li = document.createElement("li");
-      let item = document.createElement("a");
-      let counter = document.createElement("input")
-      counter.setAttribute("type", "text");
-      counter.value = 1;
-      item.innerText = this.dataset.name;
-      let id = this.dataset.id;
-      item.setAttribute("href", "/products/" + id);
-      li.append(item);
-      li.append(counter);
-      cartContent.append(li);
+      addToCart(product, cartContent);
       cartIcon[0].classList.add("shake");
       setTimeout(() => {
          cartIcon[0].classList.remove("shake");
@@ -58,11 +62,42 @@ addCartBtn.forEach(btn => {
    })
 });
 
-function addToCart(product) {
+deleteBtn.forEach(button => {
+   button.addEventListener("click", function(){
+      this.parentNode.remove();
+   })
+})
+
+function addToCart(product, element) {
    // Retrieve the cart object from local storage
    if (localStorage.getItem('cartItems')) {
       let cart = JSON.parse(localStorage.getItem('cartItems'));
-      cart.products.push(product);
+      if (product) {
+         cart.products.push(product);
+         let li = document.createElement("li");
+         let item = document.createElement("a");
+         let icon = document.createElement("i");
+         icon.classList.add("fas", "fa-minus-circle");
+         //let counter = document.createElement("input")
+         item.innerText = product.name;
+         item.setAttribute("href", "/products/" + product.id);
+         li.append(item, icon);
+         //li.append(counter);
+         element.append(li)
+      } else {
+         cart.products.forEach(product => {
+            let li = document.createElement("li");
+            let item = document.createElement("a");
+            let icon = document.createElement("i");
+            icon.classList.add("fas", "fa-minus-circle");
+            //let counter = document.createElement("input")
+            item.innerText = product.name;
+            item.setAttribute("href", "/products/" + product.id);
+            li.append(item, icon);
+            //li.append(counter);
+            element.append(li)
+         })
+      }
       localStorage.setItem('cartItems', JSON.stringify(cart));
    }
 }
