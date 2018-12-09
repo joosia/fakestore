@@ -5,7 +5,7 @@
 .Spotlight-V100
 
 ### Node.js ###
-#.env
+.env
 node_modules/
 
 ### VSCode ###
