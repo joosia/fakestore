@@ -1,20 +1,10 @@
-// Shopping Cart
-const shoppingCart = document.querySelector(".shopping-cart");
-shoppingCart.addEventListener("click", function () {
-   this.parentNode.classList.toggle("is-active");
-})
-
-// Search
-// const searchField = document.getElementById("search-field");
-// let results = document.getElementById("results");
-
-// searchField.addEventListener("keyup", (ev) => {
-//    // console.log("Seach field input");
-//    let value = { search: searchField.value };
-//    $.get("/searching", value, data => {
-//       results.innerHTML(data);
-//    })
-// });
+// Dropdowns
+const dropDownTriggers = document.querySelectorAll(".dropdown-trigger");
+dropDownTriggers.forEach(el => {
+   el.addEventListener("click", function () {
+      this.parentNode.classList.toggle("is-active");
+   })
+});
 
 const addCartBtn = document.querySelectorAll(".add-to-cart");
 const cartContent = document.querySelector(".shopping-cart-content");
@@ -39,7 +29,7 @@ if (localStorage.getItem("cartCount")) {
 addCartBtn.forEach(btn => {
    btn.addEventListener("click", function () {
       let product = {
-         id : this.dataset.id,
+         id: this.dataset.id,
          name: this.dataset.name
       }
       addToCart(product);
@@ -55,7 +45,7 @@ addCartBtn.forEach(btn => {
       li.append(counter);
       cartContent.append(li);
       cartIcon[0].classList.add("shake");
-      setTimeout(()=>{
+      setTimeout(() => {
          cartIcon[0].classList.remove("shake");
       }, 200);
       cartCount++;
@@ -71,8 +61,8 @@ addCartBtn.forEach(btn => {
 function addToCart(product) {
    // Retrieve the cart object from local storage
    if (localStorage.getItem('cartItems')) {
-       let cart = JSON.parse(localStorage.getItem('cartItems'));            
-       cart.products.push(product);
-       localStorage.setItem('cartItems', JSON.stringify(cart));
-   } 
+      let cart = JSON.parse(localStorage.getItem('cartItems'));
+      cart.products.push(product);
+      localStorage.setItem('cartItems', JSON.stringify(cart));
+   }
 }

@@ -75,13 +75,20 @@ app.get("/searching", (req, res) => {
 
 app.get("/products/:id", (req, res) => {
    // Find the product with id
-   Product.findById(req.params.id, (err, foundProduct) => {
-      if (err) {
-         res.render("pageNotFound")
+   Product.find({}, (err, allProducts) => {
+      if (err)
+         console.log(err)
+      else {
+         Product.findById(req.params.id, (err, foundProduct) => {
+            if (err) {
+               res.render("pageNotFound")
+            }
+            else
+               res.render("products/show", { product: foundProduct, products: allProducts});
+         })
       }
-      else
-         res.render("products/show", { product: foundProduct});
-   })
+   });
+
 });
 
 app.get("/checkout", (req, res) => {

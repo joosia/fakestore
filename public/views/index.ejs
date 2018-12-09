@@ -19,50 +19,38 @@
    </div>
 </section>
 
-<!-- Search
-<section class="search-container">
-   <form action="">
-      <label for="search">Find Product</label>
-      <input type="text" name="search" class="input" id="search-field">
-   </form>
-   <section id="results">
-   </section>
-</section> -->
-<section class="category-menu">
-   <ul class="categories">
-      <li>Fake Electornics</li>
-      <li>Fake Food</li>
-      <li>Fake Furniture</li>
-   </ul>
-</section>
-
-<!-- <section class="section">
-   <div class="columns is-multiline">
-      <% products.forEach( product => { %>
-      <div class="column">
-         <a href="/products/<%= product._id %>">
-            <figure class="image is-128x128">
-               <img src="<%= product.img %>">
-            </figure>
-            <p class="title has-text-centered">
-               <%= product.name %>
-            </p>
-         </a>
-         <p>
-            <%= product.price %> $
-         </p>
-         <div class="has-text-centered">
-            <button class="button is-primary add-to-cart" data-id="<%= product._id %>">
-               <span>Add to Cart</span>
-               <span class="icon is-small">
-                  <i class="fas fa-cart-arrow-down"></i>
-               </span>
-            </button>
-         </div>
+<section class="category-menu has-background-grey-light">
+   <div class="dropdown">
+      <div class="dropdown-trigger">
+         <button class="button is-text has-background-grey-light" aria-haspopup="true" aria-controls="category-menu">
+            <span>Categories</span><span class="icon is-small">
+               <i class="fas fa-angle-down" aria-hidden="true"></i>
+            </span>
+         </button>
       </div>
-      <% }) %>
+      <div class="dropdown-menu" id="category-menu" role="menu">
+         <ul class="categories dropdown-content">
+            <li class="is-hidden-mobile dropdown-item">
+               <a href="#electronics">Fake Electornics</a>
+            </li>
+            <li class="is-hidden-mobile dropdown-item">
+               <a href="#food">Fake Food</a>
+            </li>
+            <li class="is-hidden-mobile dropdown-item">
+               <a href="#furniture">Fake Furniture</a>
+            </li>
+         </ul>
+      </div>
    </div>
-</section> -->
+   <div class="search-container">
+      <p class="control has-icons-right">
+         <input type="text" class="input" name="search" placeholder="Search Products">
+         <span class="icon is-small is-right">
+            <i class="fas fa-search"></i>
+         </span>
+      </p>
+   </div>
+</section>
 
 <section class="section">
    <div class="container">
@@ -167,7 +155,7 @@
             </div>
          </div>
       </div> <!-- is-ancestor -->
-      
+
       <div class="product box is-12 has-background-info">
          <% if(i !== products.length -1) i++ %>
          <a href="/products/<%= products[i]._id %>">
@@ -182,7 +170,9 @@
                      <%= products[i].name %>
                   </p>
                   <p>
-                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro error nesciunt debitis? Dolorem, iure voluptatum expedita non ipsum sint in dolor, omnis soluta facilis maxime libero commodi necessitatibus assumenda quas.
+                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro error nesciunt debitis? Dolorem,
+                     iure voluptatum expedita non ipsum sint in dolor, omnis soluta facilis maxime libero commodi
+                     necessitatibus assumenda quas.
                   </p>
                   <p class="is-size-3 has-text-centered has-text-primary has-text-weight-bold">
                      <%= products[i].price %> $
