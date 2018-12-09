@@ -38,6 +38,7 @@
  
 // FakeStore Colors
 $blue: #1E4363;
+$dark-blue: darken($blue, 10);
 $beige: #FCF2CB;
 $yellow: #FFB00D;
 $orange: #FF8926;
@@ -57,9 +58,9 @@ $link: $blue;
 $navbar-dropdown-offset: 0px;
 $navbar-breakpoint: 0px;
 $navbar-item-hover-background-color: none;
-$navbar-background-color: $beige;
+$navbar-background-color: $dark-blue;
 // Bulma Footer
-$footer-background-color: $blue;
+$footer-background-color: $dark-blue;
 
 // Import Normalize.css
 @import "../node_modules/normalize.css/normalize.scss";
@@ -79,6 +80,19 @@ $footer-background-color: $blue;
    100% {transform: scale(1)}
 }
 
+@keyframes slideIn {
+   100% {transform: translateX(0)}
+}
+
+@keyframes slideOut {
+   0% {
+      transform: translateX(0)
+   }
+   100% {
+      transform: translateX(-100vw);
+      display: none;
+   }
+}
 .shake {
    animation: shake 200ms ease-out;
 }
@@ -107,6 +121,10 @@ $footer-background-color: $blue;
       margin-left: 15px;
       span {font-size:10px;}
    }
+   .navbar-item.login {
+      color: $yellow;
+      &:hover {color: $beige;}
+   }
    .shopping-cart {
       &:hover {
          .fa-shopping-cart {
@@ -117,9 +135,13 @@ $footer-background-color: $blue;
          color: $red;
       }
    }
-   #navbarLinks {
-      .navbar-item:hover {
-            color: black;
+   input[type="text"] {
+      width: 40px;
+      background: none;
+      border: none;
+      text-align: center;
+      &:focus {
+         outline: none;
       }
    }
 }
@@ -132,26 +154,65 @@ $footer-background-color: $blue;
    }
 }
 
-.hero-header {
+.hero {
    margin-top: 64px;
-   background: url("/img/fakestore_cityscape.svg");
-   background-repeat: no-repeat;
-   background-position: center;
-   background-size: cover;
-   .title {
-      color: $beige;
+   &.hero-header {
+      height: 500px;
+      background: url("/img/fakestore_cityscape.svg");
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      background-size: cover;
+      .container {
+         position: relative;
+         display: flex;
+         justify-content: center;
+         max-width: 100vw;
+         height: 500px;
+      }
+      .title {
+         position: absolute;
+         color: $beige;
+      }
+      .title:first-of-type {
+         transform: translateX(100vw);
+         color: $beige;
+         animation: slideIn 2s ease-out forwards, slideOut 2s ease-out 4s forwards;
+      }
+      .title:nth-of-type(2) {
+         transform: translateX(100vw);
+         color: $beige;
+         animation: slideIn 2s ease-out 4s forwards, slideOut 2s ease-out 8s forwards;
+      }
+      .title:nth-of-type(3) {
+         transform: translateX(100vw);
+         color: $beige;
+         animation: slideIn 2s ease-out 8s forwards, slideOut 2s ease-out 12s forwards;
+      }
+      .title:nth-of-type(4) {
+         transform: translateX(100vw);
+         color: $beige;
+         animation: slideIn 2s ease-out 12s forwards;
+      }
    }
 }
 
+
 .hero-footer {
    height: 500px;
-   margin-top: 64px;
    background: url("/img/fakestore_cityscape_noBG.svg");
    background-repeat: no-repeat;
    background-position: bottom;
    background-size: cover;
+   .container {
+      justify-content: flex-end;
+   }
 }
 
+#map {
+   height:200px; 
+   border:5px solid $beige;
+   border-radius: 5px;
+}
 .search-container {
    background: $beige;
    height: 50px;
@@ -172,7 +233,7 @@ $footer-background-color: $blue;
 
 .image {
    border-radius: 5px;
-   border: 5px solid white;
+   border: 5px solid $beige;
    overflow: hidden;
 }
 

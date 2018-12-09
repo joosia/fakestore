@@ -80,7 +80,7 @@ app.get("/products/:id", (req, res) => {
          res.render("pageNotFound")
       }
       else
-         res.render("products/show", { product: foundProduct, addedProducts: addedProducts });
+         res.render("products/show", { product: foundProduct});
    })
 });
 

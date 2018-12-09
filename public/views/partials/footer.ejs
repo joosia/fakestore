@@ -1,9 +1,44 @@
-   <section class="hero hero-footer">
-   </section>
-   <footer class="footer">
+<section class="hero hero-footer">
 
-   </footer>
-   <script src="/scripts/ajax.js"></script>
-   <script src="/scripts/fakeStore.js"></script>
+</section>
+<footer class="footer">
+   <div class="container">
+      <div class="columns">
+         <div class="column is-6-mobile">
+            <p class="subtitle has-text-info">Site Map</p>
+            <p><a href="" class="has-text-info">About</a></p>
+            <p><a href="" class="has-text-info">Documentation</a></p>
+            <p><a href="" class="has-text-info">Login</a></p>
+         </div>
+         <div class="column is-6-mobile">
+            <p class="subtitle has-text-info">Contact</p>
+            <p>Fake$tore, FakeStreet 1 44400 Faketown</p>
+            <div id="map"></div>
+         </div>
+      </div>
+   </div>
+</footer>
+<div class="has-background-black">
+   <p class="has-text-centered is-size-7 has-text-grey-light">© Fake$tore 2018</p>
+</div>
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+   crossorigin=""></script>
+<script>
+   var mymap = L.map('map').setView([71.3648, -175.5623], 10);
+   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      maxZoom: 18,
+      id: 'mapbox.streets',
+      accessToken: 'pk.eyJ1Ijoiam9vc2lhIiwiYSI6ImNqbjRldzh5bjI3cjYzcHBscGJqNHhsNzkifQ.2cJa5_63U7naa_L5VxQ27A'
+   }).addTo(mymap);
+   // Store location
+   var marker = L.marker([71.3648, -175.5623]).addTo(mymap);
+   // Pop-ups
+   marker.bindPopup("<b>FakeStore</b><p><em>FakeStreet 1 44400 Faketown</em></p>");
+</script>
+<script src="/scripts/ajax.js"></script>
+<script src="/scripts/fakeStore.js"></script>
 </body>
+
 </html>

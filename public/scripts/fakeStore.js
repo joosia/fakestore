@@ -45,10 +45,14 @@ addCartBtn.forEach(btn => {
       addToCart(product);
       let li = document.createElement("li");
       let item = document.createElement("a");
+      let counter = document.createElement("input")
+      counter.setAttribute("type", "text");
+      counter.value = 1;
       item.innerText = this.dataset.name;
       let id = this.dataset.id;
       item.setAttribute("href", "/products/" + id);
       li.append(item);
+      li.append(counter);
       cartContent.append(li);
       cartIcon[0].classList.add("shake");
       setTimeout(()=>{
