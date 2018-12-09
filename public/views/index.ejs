@@ -19,7 +19,7 @@
    </div>
 </section>
 
-<!-- <section class="category-menu has-background-grey-light">
+<section class="category-menu has-background-grey-light">
    <div class="dropdown">
       <div class="dropdown-trigger">
          <button class="button is-text has-background-grey-light" aria-haspopup="true" aria-controls="category-menu">
@@ -50,7 +50,7 @@
          </span>
       </p>
    </div>
-</section> -->
+</section>
 
 <section class="section">
    <div class="container">
@@ -64,7 +64,7 @@
                   </figure>
                </a>
                <p class="title has-text-centered">
-                  <%= products[i].name %>
+                  <a href="/products/<%= products[i]._id %>"><%= products[i].name %></a>
                </p>
                <br />
                <div class="level">
@@ -96,7 +96,7 @@
                   </figure>
                </a>
                <p class="title has-text-centered">
-                  <%= products[i].name %>
+                  <a href="/products/<%= products[i]._id %>"><%= products[i].name %></a>
                </p>
                <br />
                <div class="level">
@@ -130,7 +130,7 @@
                   </figure>
                </a>
                <p class="title has-text-centered">
-                  <%= products[i].name %>
+                  <a href="/products/<%= products[i]._id %>"><%= products[i].name %></a>
                </p>
                <p class="is-hidden-mobile">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam
                   at erat pulvinar, at
@@ -175,7 +175,7 @@
             </div>
             <div class="column is-6">
                <p class="title has-text-centered">
-                  <%= products[i].name %>
+                  <a href="/products/<%= products[i]._id %>"><%= products[i].name %></a>
                </p>
                <p class="is-hidden-mobile">
                   Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro error nesciunt debitis? Dolorem,
