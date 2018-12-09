@@ -1,0 +1,199 @@
+<% include partials/header %>
+
+<section class="hero hero-header">
+   <div class="hero-body">
+      <div class="container has-text-centered">
+         <p class="title">
+            Do you like faking it?
+         </p>
+         <p class="title">
+            Is fake news your thing?
+         </p>
+         <p class="title">
+            Did you vote Trump?
+         </p>
+         <p class="title">
+            If you answered three times yes, then FakeStore is just what you need!
+         </p>
+      </div>
+   </div>
+</section>
+
+<!-- Search -->
+<section class="search-container">
+   <form action="">
+      <label for="search">Find Product</label>
+      <input type="text" name="search" class="input" id="search-field">
+   </form>
+   <section id="results">
+   </section>
+</section>
+
+<!-- <section class="section">
+   <div class="columns is-multiline">
+      <% products.forEach( product => { %>
+      <div class="column">
+         <a href="/products/<%= product._id %>">
+            <figure class="image is-128x128">
+               <img src="<%= product.img %>">
+            </figure>
+            <p class="title has-text-centered">
+               <%= product.name %>
+            </p>
+         </a>
+         <p>
+            <%= product.price %> $
+         </p>
+         <div class="has-text-centered">
+            <button class="button is-primary add-to-cart" data-id="<%= product._id %>">
+               <span>Add to Cart</span>
+               <span class="icon is-small">
+                  <i class="fas fa-cart-arrow-down"></i>
+               </span>
+            </button>
+         </div>
+      </div>
+      <% }) %>
+   </div>
+</section> -->
+
+<section class="section">
+   <div class="container">
+      <% for (let i = 0; i < products.length; i++) {%>
+      <div class="tile is-ancestor">
+         <div class="tile is-4 is-vertical is-parent">
+            <div class="product tile is-child box has-background-info">
+               <a href="/products/<%= products[i]._id %>">
+                  <figure class="image">
+                     <img src="<%= products[i].img %>">
+                  </figure>
+                  <p class="title has-text-centered">
+                     <%= products[i].name %>
+                  </p>
+               </a>
+               <div class="level">
+                  <div class="level-left">
+                     <div class="level-item">
+                        <p class="is-size-5-touch is-size-3 has-text-primary has-text-weight-bold">
+                           <%= products[i].price %> $
+                        </p>
+                     </div>
+                  </div>
+                  <div class="level-right">
+                     <div class="level-item">
+                        <button class="button is-primary add-to-cart" data-name="<%= products[i].name %>" data-id="<%= products[i]._id %>">
+                           <span>Add to Cart</span>
+                           <span class="icon is-small">
+                              <i class="fas fa-cart-arrow-down"></i>
+                           </span>
+                        </button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="product tile is-child box has-background-info">
+               <% if(i !== products.length -1) i++ %>
+               <a href="/products/<%= products[i]._id %>">
+                  <figure class="image">
+                     <img src="<%= products[i].img %>">
+                  </figure>
+                  <p class="title">
+                     <%= products[i].name %>
+                  </p>
+               </a>
+               <div class="level">
+                  <div class="level-left">
+                     <div class="level-item">
+                        <p class="is-size-5-touch is-size-3 has-text-primary has-text-weight-bold">
+                           <%= products[i].price %> $
+                        </p>
+                     </div>
+                  </div>
+                  <div class="level-right">
+                     <div class="level-item">
+                        <button class="button is-primary add-to-cart" data-name="<%= products[i].name %>" data-id="<%= products[i]._id %>">
+                           <span>Add to Cart</span>
+                           <span class="icon is-small">
+                              <i class="fas fa-cart-arrow-down"></i>
+                           </span>
+                        </button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="tile is-parent">
+            <div class="product tile is-child box has-background-info">
+               <% if(i !== products.length -1) i++ %>
+               <a href="/products/<%= products[i]._id %>">
+                  <figure class="image">
+                     <img src="<%= products[i].img %>">
+                  </figure>
+                  <p class="title">
+                     <%= products[i].name %>
+                  </p>
+               </a>
+               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam semper diam at erat pulvinar, at
+                  pulvinar
+                  felis blandit. Vestibulum volutpat tellus diam, consequat gravida libero rhoncus ut. Morbi maximus,
+                  leo
+                  sit amet vehicula eleifend, nunc dui porta orci, quis semper odio felis ut quam.</p>
+               <div class="level">
+                  <div class="level-left">
+                     <div class="level-item">
+                        <p class="is-size-5-touch is-size-3 has-text-primary has-text-weight-bold">
+                           <%= products[i].price %> $
+                        </p>
+                     </div>
+                  </div>
+                  <div class="level-right">
+                     <div class="level-item">
+                        <button class="button is-primary add-to-cart" data-name="<%= products[i].name %>" data-id="<%= products[i]._id %>">
+                           <span>Add to Cart</span>
+                           <span class="icon is-small">
+                              <i class="fas fa-cart-arrow-down"></i>
+                           </span>
+                        </button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div> <!-- is-ancestor -->
+      
+      <div class="product box is-12 has-background-info">
+         <% if(i !== products.length -1) i++ %>
+         <a href="/products/<%= products[i]._id %>">
+            <div class="columns">
+               <div class="column is-6">
+                  <figure class="image is-16by9">
+                     <img src="<%= products[i].img %>">
+                  </figure>
+               </div>
+               <div class="column is-6">
+                  <p class="title">
+                     <%= products[i].name %>
+                  </p>
+                  <p>
+                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro error nesciunt debitis? Dolorem, iure voluptatum expedita non ipsum sint in dolor, omnis soluta facilis maxime libero commodi necessitatibus assumenda quas.
+                  </p>
+                  <p class="is-size-3 has-text-centered has-text-primary has-text-weight-bold">
+                     <%= products[i].price %> $
+                  </p>
+                  <div class="has-text-centered">
+                     <button class="button is-primary add-to-cart" data-name="<%= products[i].name %>" data-id="<%= products[i]._id %>">
+                        <span>Add to Cart</span>
+                        <span class="icon is-small">
+                           <i class="fas fa-cart-arrow-down"></i>
+                        </span>
+                     </button>
+                  </div>
+               </div>
+            </div>
+         </a>
+      </div>
+      <% } %>
+   </div>
+</section>
+
+<% include partials/footer %>

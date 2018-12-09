@@ -12,7 +12,8 @@ const express = require("express"), // Framework for web applications
    User = require("./models/user"); // Require userSchema
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/public')));
+app.set("views", "public/views");
 app.set("view engine", "ejs");
 
 // ================================================================================
@@ -46,7 +47,7 @@ function createProducts() {
    for (let i = 0; i < 20; i++) {
       product = {
          id: faker.random.number(),
-         img: "https://picsum.photos/200/?image=" + i * 10,
+         img: "https://picsum.photos/800/?image=" + i * 10,
          name: faker.commerce.productName(),
          description: faker.lorem.paragraph(),
          price: faker.commerce.price()
@@ -63,7 +64,7 @@ app.get("/", (req, res) => {
       if (err)
          console.log(err)
       else
-         res.render("index", { products: allProducts });
+         res.render("index", { products: allProducts});
    });
 });
 
@@ -75,10 +76,11 @@ app.get("/searching", (req, res) => {
 app.get("/products/:id", (req, res) => {
    // Find the product with id
    Product.findById(req.params.id, (err, foundProduct) => {
-      if (err)
-         console.log(err)
+      if (err) {
+         res.render("pageNotFound")
+      }
       else
-         res.render("products/show", { product: foundProduct });
+         res.render("products/show", { product: foundProduct, addedProducts: addedProducts });
    })
 });
 

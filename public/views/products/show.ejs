@@ -1,0 +1,54 @@
+<% include ../partials/header %>
+<div class="hero-header"></div>
+<section class="section">
+   <div class="container">
+      <div class="path">
+         <a href="/">Products </a>
+         <i class="fas fa-chevron-right has-text-grey"></i>
+         <a href="/products/<%= product._id %>"><%= product.name %></a>
+      </div>
+      <div class="product box is-12 has-background-info">
+         <a href="/products/<%= product._id %>">
+            <div class="columns">
+               <div class="column is-6">
+                  <figure class="image">
+                     <img src="<%= product.img %>">
+                  </figure>
+               </div>
+               <div class="column is-6">
+                  <p class="title">
+                     <%= product.name %>
+                  </p>
+                  <p>
+                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro error nesciunt debitis? Dolorem,
+                     iure voluptatum expedita non ipsum sint in dolor, omnis soluta facilis maxime libero commodi
+                     necessitatibus assumenda quas.
+                  </p>
+                  <div class="level">
+                     <div class="level-left">
+                        <div class="level-item">
+                           <p class="is-size-5-touch is-size-3 has-text-primary has-text-weight-bold">
+                              <%= product.price %> $
+                           </p>
+                        </div>
+                     </div>
+                     <div class="level-right">
+                        <div class="level-item">
+                           <button class="button is-primary add-to-cart" data-id="<%= product._id %>">
+                              <span>Add to Cart</span>
+                              <span class="icon is-small">
+                                 <i class="fas fa-cart-arrow-down"></i>
+                              </span>
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </a>
+      </div>
+   </div>
+</section>
+
+
+<% include ../partials/footer %>

@@ -5,15 +5,14 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <link rel="stylesheet" href="styles/styles.css">
+   <link rel="stylesheet" href="/styles/styles.css">
    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
    <title>FakeStore</title>
 </head>
 
 <body>
-
    <nav class="navbar is-transparent is-fixed-top" role="navigation" aria-label="main navigation">
-      
+
       <div class="navbar-brand">
          <a class="navbar-item" href="/">
             <h1 class="is-size-3"><span class="has-text-weight-bold has-text-primary">Fake</span><span>$tore</span></h1>
@@ -33,12 +32,15 @@
             </a>
             <div class="navbar-item has-dropdown">
                <a class="navbar-link is-arrowless shopping-cart">
+                  <div class="cart-counter hidden">
+                     <span class=" has-text-weight-bold">0</span>
+                  </div>
                   <i class="fas fa-shopping-cart fa-2x"></i>
                </a>
                <div class="navbar-dropdown is-boxed is-right">
-                  <a class="navbar-item">Product 1</a>
-                  <a class="navbar-item">Product 2</a>
-                  <a class="navbar-item">Product 3</a>
+                  <div class="navbar-item">
+                     <ul class="shopping-cart-content"></ul>
+                  </div>
                   <a class="navbar-item" href="/checkout"><button class="button is-primary">Checkout</button></a>
                </div>
             </div>
