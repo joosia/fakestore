@@ -13,7 +13,7 @@ const express = require("express"), // Framework for web applications
    User = require("./models/user"); // Require userSchema
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.set("views", "public/views");
 app.set("view engine", "ejs");
 
