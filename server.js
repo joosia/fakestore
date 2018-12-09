@@ -117,7 +117,7 @@ app.post("/checkout/", (req, res) => {
          if (err)
             res.redirect("/checkout?error=" + err)
          else
-            res.render("/checkout/confirmation")
+            res.render("confirmation")
       })
    } else {
       let msg = "Passwords don't match!";
@@ -130,7 +130,7 @@ app.get("/checkout/confirmation", (req, res) => {
 });
 
 app.get("/documentation", (req, res) => {
-   res.render("documentation.ejs")
+   res.render("documentation")
 });
 // Error route
 app.get("/*", (req, res) => {
