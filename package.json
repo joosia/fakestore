@@ -19,6 +19,6 @@
    "scripts": {
       "css-build": "node-sass --omit-source-map-url sass/styles.scss public/styles/styles.css",
       "css-watch": "npm run css-build -- --watch",
-      "start": "node app.js"
+      "start": "node server.js"
    }
 }
